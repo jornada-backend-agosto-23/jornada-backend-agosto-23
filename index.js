@@ -1,5 +1,6 @@
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
+const cors = require("cors");
 
 // const url = "mongodb://localhost:27017";
 // const url = "mongodb://127.0.0.1:27017";
@@ -17,6 +18,9 @@ async function main() {
   const collection = db.collection("herois");
 
   const app = express();
+
+  // Habilitar o CORS
+  app.use(cors());
 
   // Habilitamos o processamento de JSON
   app.use(express.json());
